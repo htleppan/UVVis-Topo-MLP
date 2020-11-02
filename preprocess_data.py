@@ -1,14 +1,6 @@
-import sys
-sys.path.append('/usr/local/lib/python3.8/site-packages/')
 import numpy as np
 import pandas as pd 
-import time 
-import random
-import matplotlib.pyplot as plt
-import copy
 from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import Draw
 
 def get_fingerprint_from_smiles(smi, path_length = 4, path_is_ordered = True, both_path_directions = True, verbose = False):
 
@@ -174,12 +166,10 @@ def get_fingerprint_from_smiles(smi, path_length = 4, path_is_ordered = True, bo
 ### Read UV-Vis data; get SMILES and sTDA columns only
 df = pd.read_csv("paper_allDB.csv", header = 0, usecols = [0, 1])
 df.columns = ["SMI", "sTDA (nm)"]
-### Retain rows with Lambda in range [200, 800] 
+### Retain rows with Lambda in range of [200, 800] 
 df = df[df['sTDA (nm)'].notnull()]
 df = df[df["sTDA (nm)"] <= 800]
 df = df[df["sTDA (nm)"] >= 200]
-
-
 
 
 ### Get fingerprint and add to data frame; discard rows where fingerprint generation failed

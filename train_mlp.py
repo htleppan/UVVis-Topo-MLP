@@ -1,18 +1,7 @@
-import sys
-sys.path.append('/usr/local/lib/python3.8/site-packages/')
-
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd 
-import time 
-import random
-import matplotlib.pyplot as plt
-import copy
-from rdkit import Chem
 from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-from sklearn import linear_model
 
 ### Read data
 input_data = np.genfromtxt ('input_data.csv', delimiter=",")
