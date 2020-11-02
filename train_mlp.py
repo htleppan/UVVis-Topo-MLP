@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/usr/local/lib/python3.8/site-packages/')
+
 import numpy as np
 import pandas as pd 
 from sklearn.neural_network import MLPRegressor
@@ -57,7 +60,7 @@ yhat_test = reg.predict(X_test)
 outliers = []
 for y in range(0, yhat_test.shape[0]):
     if np.abs(yhat_test[y] - y_test[y]) > 50:
-        outliers.append([y_test[y], yhat_test[y], smi_test.iloc[y, 0]])
+        outliers.append([y_test[y], yhat_test[y], smi_test.iloc[y]])
 print("Outliers: " + str(len(outliers)))
 
 
